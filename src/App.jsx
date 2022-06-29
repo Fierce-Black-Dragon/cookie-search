@@ -38,14 +38,12 @@ export default function App() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const cookieExpiresInDays = 10;
-
     const searchHistoryCookie = readCookie(cookieName);
 
     if (!searchHistoryCookie) {
       const searchHistory = [searchInput];
 
-      setCookie(cookieName, searchHistory, cookieExpiresInDays);
+      setCookie(cookieName, searchHistory);
       setSuggestions((oldSuggestions) => [...oldSuggestions, searchInput]);
     } else {
       const cookieContent = searchHistoryCookie?.split(",");
