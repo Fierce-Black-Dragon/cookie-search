@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import "./App.css";
 function setCookie(name, value, days) {
   if (days) {
     var date = new Date();
@@ -61,22 +61,24 @@ export default function App() {
   };
   return (
     <div className="App">
-      <form onSubmit={onSubmit}>
-        <input
-          list="suggestions"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-          required
-        />
+      <div className="search">
+        <form onSubmit={onSubmit}>
+          <input
+            list="suggestions"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            required
+          />
 
-        <datalist id="suggestions">
-          {suggestions?.map((s, index) => {
-            return <option value={s} key={index}></option>;
-          })}
-        </datalist>
+          <datalist id="suggestions">
+            {suggestions?.map((s, index) => {
+              return <option value={s} key={index}></option>;
+            })}
+          </datalist>
 
-        <button type="submit">Search</button>
-      </form>
+          <button type="submit">Search</button>
+        </form>
+      </div>
     </div>
   );
 }
