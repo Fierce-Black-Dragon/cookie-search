@@ -52,7 +52,7 @@ export default function App() {
 
       if (isNotPresent) {
         cookieContent.push(searchInput);
-        setCookie(cookieName, cookieContent.toString(), cookieExpiresInDays);
+        setCookie(cookieName, cookieContent.toString());
         setSuggestions((oldSuggestions) => [...oldSuggestions, searchInput]);
       }
     }
